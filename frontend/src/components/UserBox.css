@@ -1,0 +1,26 @@
+.UserBox {
+    width: 300px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.UserBox button {
+    width: 150px;
+    height: 40px;
+    margin: 5px;
+    background-color: #72bbf4;
+    border-radius: 10px;
+    border-style: none;
+    cursor: pointer;
+}
+
+.UserBox button:hover {
+    background-color: #51aaef;
+}
+
+@media (max-width: 426px) {
+    .UserBox {
+        flex-direction: row;
+    }
+}
