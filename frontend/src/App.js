@@ -7,21 +7,29 @@ import Basket from './views/Basket';
 import ModalBox from './components/ModalBox';
 import Login from './components/Login';
 import Registration from './components/Registration';
+import AddProducts from './components/AddProducts';
+import PayProducts from './components/PayProducts';
+import UserCabinet from './components/UserCabinet';
+
 
 function App() {
 
   const[page, setPage] = useState('Main')
   const[modalBox, setModalBox] = useState('none')
+  const[basket, setBasket] = useState([])
   
   const pages = {
-    Main: <Main />,
-    Basket: <Basket />
+    Main: <Main setBasket={setBasket}/>,
+    Basket: <Basket basket={basket} setBasket={setBasket} setModalBox={setModalBox}/>,
+    UserCabinet: <UserCabinet />
   }
 
   const modalBoxes = {
     none: null,
     Login: <ModalBox setModalBox={setModalBox}><Login /></ModalBox>,
-    Registration: <ModalBox setModalBox={setModalBox}><Registration /></ModalBox>
+    Registration: <ModalBox setModalBox={setModalBox}><Registration /></ModalBox>,
+    AddProducts: <ModalBox setModalBox={setModalBox}><AddProducts /></ModalBox>,
+    PayProducts: <ModalBox setModalBox={setModalBox}><PayProducts /></ModalBox>
   }
 
   return (

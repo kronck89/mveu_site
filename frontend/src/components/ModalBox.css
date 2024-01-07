@@ -19,7 +19,7 @@
     background-color: #dedede;
     opacity: .3;
 }
-#login, #password, #email {
+#login, #password, #email, #header, #price {
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -33,7 +33,7 @@
     margin-bottom: 20px;
 }
 
-#login input, #password input, #email input {
+#login input, #password input, #email input, #newprod input, #newprice input, #header input, #price input  {
     height: 30px;
     width: auto;
     margin-bottom: 20px;
@@ -41,13 +41,12 @@
 }
 
 #enter_button {
-    width: 150px;
-    border-radius: 5px;
+    width: 210px;
+    border-radius: 6px;
     margin: 10px;
     color: #fff;
-    height: 40px;
+    height: 50px;
     line-height: 30px;
-    font-size: 14pt;
     background-color: #72bbf4;
     border-style: none;
 }

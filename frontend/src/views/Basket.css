@@ -12,6 +12,30 @@
     grid-template-columns: repeat(3, 1fr);
 }
 
+.neworder {
+    width: 150px;
+    height: 40px;
+    margin: 5px;
+    background-color: #6bf56b;
+    border-radius: 10px;
+    border-style: none;
+    cursor: pointer;
+    color: #fff;
+}
+.neworder:hover {
+    background-color: #2ab82a;
+} 
+
+#cardnumber, #carddate, #cardcvc {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 3% 5%;
+    height: 30px;
+    text-indent: 15px;
+    border: solid 1px #dedede;
+}    
+
 @media (max-width: 768px) {
     .BasketContent {
         min-height: calc(100vh - 160px - 50px);

@@ -8,6 +8,7 @@ const jsonwebtoken = require('jsonwebtoken')
 const {secret} = require('./config')
 const User = require('./models/User')
 const Product = require('./models/Product')
+const Card = require('./models/Card')
 
 const app = express()
 
@@ -46,17 +47,47 @@ app.post('/login', async (req, res) => {
 
     res.json({
         message: 'Вы успешно авторизованы',
-        token: token
+        token: token,
+        data: user
+    })
+})
+
+app.get('/usercabinet', async (req, res) => {
+    const logins = await User.find()
+    
+    res.json({
+        data: logins
+    })
+})
+
+app.post('/product', async (req, res) => {
+    console.log(req.body)
+    const {header, price} = req.body
+    const prodNew = new Product({header, price})
+    await prodNew.save()
+    res.json({
+        message: 'Товар добавлен!'
     })
 })
 
 app.get('/products', async (req, res) => {
-
     const products = await Product.find()
-
+    
     res.json({
         data: products
     })
+})
+
+app.post('/payproducts', async (req, res) => {
+    
+    console.log(req.body)
+    const {cardnumber, carddate, cardcvc} = req.body
+    const card = new Card({cardnumber, carddate, cardcvc})
+    await card.save()
+    res.json({
+        message: 'Товар оплачен'
+    })
+
 })
 
 const start = async () => {

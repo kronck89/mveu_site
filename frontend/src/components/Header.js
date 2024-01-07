@@ -4,11 +4,12 @@ import UserBox from './UserBox';
 
 function Header({setPage, setModalBox}) {
 
-  return (
+   return (
     <div className="Header">
       <ul>
         <li onClick={() => setPage('Main') }>Главная</li>
         <li onClick={() => setPage('Basket') }>Корзина</li>
+        <li onClick={() => setPage('UserCabinet') }>Список юзеров</li>
       </ul>
       <UserBox setModalBox={setModalBox} />
     </div>

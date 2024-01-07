@@ -26,8 +26,7 @@ function Login() {
         .then((result) => {
             console.log(result)
             localStorage.setItem('token', result.token)
-        }) 
-
+        })
       }
 
 

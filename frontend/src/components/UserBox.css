@@ -1,5 +1,5 @@
 .UserBox {
-    width: 300px;
+    width: 35%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -13,10 +13,15 @@
     border-radius: 10px;
     border-style: none;
     cursor: pointer;
+    color: #fff;
 }
 
 .UserBox button:hover {
     background-color: #51aaef;
+}
+
+.UserBox .newprod {
+    background-color: red;
 }
 
 @media (max-width: 426px) {
