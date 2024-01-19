@@ -1,11 +1,12 @@
 import React from 'react';
 
-function Registration() {
+function Registration({setModalBox, setMessage}) {
     
     function Reg() {
         const login = document.getElementById('login').value
         const password = document.getElementById('password').value
         const email = document.getElementById('email').value
+        let message
     
         const data = {
           login: login,
@@ -24,11 +25,14 @@ function Registration() {
           },
           body: JSON.stringify(data)
         })
-        .then(result => result.json())
-        .then((result) => {
-            console.log(result)
-        }) 
 
+        .then((result) => result.json())
+        .then((result) => message = result.message)
+
+        setTimeout(() => {
+          setMessage(message)
+          setModalBox('MessageBox')
+        }, 100)
       }
 
     return (

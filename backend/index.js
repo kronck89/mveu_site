@@ -38,15 +38,17 @@ app.post('/login', async (req, res) => {
     const {login, password} = req.body
     const user = await User.findOne({login})
     if (!user){
-        return res.status(400).json({message: 'Пользователь не найден!'})
+        return res.status(400).json({message: 'Пользователь не найден'})
     }
     if (user.password !== password){
-        return res.status(400).json({message: 'Неверный логин или пароль!'})
+        return res.status(400).json({message: 'Неверный логин или пароль'})
     }
     const token = generateAccessToken(user._id)
+    const loginuser = user;
 
     res.json({
-        message: 'Вы успешно авторизованы',
+        message: loginuser.login + ': Вы успешно авторизованы',
+        loginuser: loginuser.login,
         token: token,
         data: user
     })
@@ -57,6 +59,17 @@ app.get('/usercabinet', async (req, res) => {
     
     res.json({
         data: logins
+    })
+})
+
+app.post('/changePassword', async (req, res) => {
+    console.log(req.body)
+    const {login, password} = req.body
+    let user
+    user = await User.findOneAndUpdate({login: login}, { password: password })
+    res.json({
+        message: 'Пароль изменён!',
+        newPassword: User.password
     })
 })
 

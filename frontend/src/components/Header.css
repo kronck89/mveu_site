@@ -22,6 +22,20 @@
 .Header li:hover {
     background-color: #78abd1;
 }
+.countbasket {
+    position: relative;
+}
+.countbasket b {
+    font-size: 10px;
+    top: -10px;
+    font-weight: 600;
+    left: 10px;
+    line-height: 10px;
+    position: relative;
+    border: solid 1px #2293eb;
+    border-radius: 50px;
+    padding: 5px;
+}
 
 @media (max-width: 426px) {
     .Header ul, .Header {
